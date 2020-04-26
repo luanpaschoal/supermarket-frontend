@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>{{title}}</mat-card-title>
+  <form #itemForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Nome" required
+             [(ngModel)]="item.name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Preço (R$)" type="number"
+             [(ngModel)]="item.price" name="price">
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button
+          [disabled]="itemForm.form.invalid"
+          (click)="saveItem()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>
